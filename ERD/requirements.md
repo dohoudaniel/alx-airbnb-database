@@ -3,6 +3,8 @@
 This document outlines the core database schema for the Airbnb Clone backend.  
 Designed with scalability and data integrity in mind.
 
+Link to Database Diabram is: [ALX ProDev BE C2: AirBnB ERD](https://dbdiagram.io/d/ALX-ProDev-BE-C2-AirBnB-ERD-685ee051f413ba35083dc7f9)
+
 ```dbml
 enum booking_roles {
   guest
