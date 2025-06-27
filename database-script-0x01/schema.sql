@@ -39,7 +39,7 @@ CREATE TABLE payment (
   payment_method ENUM ('credit_card', 'paypal', 'stripe') NOT NULL
 );
 
-CREATE TABLE reviews (
+CREATE TABLE review (
   review_id CHAR(36) UNIQUE PRIMARY KEY,
   property_id CHAR(36) NOT NULL,
   user_id CHAR(36) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE reviews (
   created_at TIMESTAMP NOT NULL DEFAULT (now())
 );
 
-CREATE TABLE messages (
+CREATE TABLE message (
   message_id CHAR(36) UNIQUE PRIMARY KEY,
   sender_id CHAR(36) NOT NULL,
   recipient_id CHAR(36) NOT NULL,
@@ -64,10 +64,10 @@ ALTER TABLE booking ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
 
 ALTER TABLE payment ADD FOREIGN KEY (booking_id) REFERENCES booking (booking_id);
 
-ALTER TABLE reviews ADD FOREIGN KEY (property_id) REFERENCES property (property_id);
+ALTER TABLE review ADD FOREIGN KEY (property_id) REFERENCES property (property_id);
 
-ALTER TABLE reviews ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
+ALTER TABLE review ADD FOREIGN KEY (user_id) REFERENCES user (user_id);
 
-ALTER TABLE messages ADD FOREIGN KEY (sender_id) REFERENCES user (user_id);
+ALTER TABLE message ADD FOREIGN KEY (sender_id) REFERENCES user (user_id);
 
-ALTER TABLE messages ADD FOREIGN KEY (recipient_id) REFERENCES user (user_id);
+ALTER TABLE message ADD FOREIGN KEY (recipient_id) REFERENCES user (user_id);
