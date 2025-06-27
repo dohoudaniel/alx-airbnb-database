@@ -1,4 +1,4 @@
-```
+```dbml
 ```
 
 enum booking_roles {
