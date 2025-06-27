@@ -1,6 +1,9 @@
-```dbml
-```
+# Airbnb Clone — Database Schema (ERD)
 
+This document outlines the core database schema for the Airbnb Clone backend.  
+Designed with scalability and data integrity in mind.
+
+```dbml
 enum booking_roles {
   guest
   host
@@ -76,5 +79,4 @@ Table messages {
   message_body TEXT [not null, note: "Content of the message"]
   sent_at TIMESTAMP [not null, default: `now()`, note: "Timestamp when the message was sent"]
 }
-```
-```
+
