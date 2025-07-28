@@ -17,7 +17,7 @@ ORDER BY
   total_bookings DESC
 ;
 
--- 2) Rank properties based on the total number of bookings using ROW_NUMBER()
+-- 2) Rank properties based on the total number of bookings
 WITH property_counts AS (
   SELECT
     p.property_id,
@@ -34,9 +34,25 @@ SELECT
   property_id,
   name,
   booking_count,
-  ROW_NUMBER() OVER (ORDER BY booking_count DESC) AS booking_rank
+
+  -- Sequential unique rank (no ties): ROW_NUMBER
+  ROW_NUMBER() OVER (
+    ORDER BY booking_count DESC
+  ) AS row_num,
+
+  -- Standard competition rank (ties get same rank, gaps follow): RANK
+  RANK() OVER (
+    ORDER BY booking_count DESC
+  ) AS rank,
+
+  -- Dense rank (ties get same rank, no gaps): DENSE_RANK
+  DENSE_RANK() OVER (
+    ORDER BY booking_count DESC
+  ) AS dense_rank
+
 FROM property_counts
 ORDER BY
-  booking_rank
+  booking_count DESC,
+  property_id
 ;
 
