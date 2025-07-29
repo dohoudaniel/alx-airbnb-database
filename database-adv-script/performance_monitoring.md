@@ -24,9 +24,9 @@ Use the following commands to capture execution details:
   ```sql
   EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)
   SELECT ...;
-````
+  ```
 
-* **MySQL:**
+- MySQL:
 
   ```sql
   SET profiling = 1;
