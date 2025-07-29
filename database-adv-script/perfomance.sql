@@ -17,6 +17,8 @@ FROM bookings AS b
 JOIN users      AS u  ON b.user_id     = u.user_id
 JOIN properties AS p  ON b.property_id = p.property_id
 JOIN payments   AS pm ON b.booking_id  = pm.booking_id
+WHERE b.created_at IS NOT NULL
+  AND u.user_id IS NOT NULL
 ORDER BY b.created_at DESC;
 
 
@@ -43,6 +45,8 @@ FROM bookings AS b
 JOIN users      AS u  ON b.user_id     = u.user_id
 JOIN properties AS p  ON b.property_id = p.property_id
 LEFT JOIN payments   AS pm ON b.booking_id  = pm.booking_id
+WHERE b.created_at IS NOT NULL
+  AND u.user_id IS NOT NULL
 ORDER BY b.created_at DESC
 LIMIT 100;
 
