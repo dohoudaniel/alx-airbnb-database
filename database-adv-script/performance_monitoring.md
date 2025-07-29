@@ -1,4 +1,3 @@
-````markdown
 # 📈 Continuous Database Performance Monitoring & Tuning
 
 ## 🎯 Objective

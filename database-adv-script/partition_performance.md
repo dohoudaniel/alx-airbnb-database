@@ -52,10 +52,3 @@ WHERE start_date BETWEEN '2025-06-01' AND '2025-06-30';
 * Monitor query patterns to adjust partition granularity (e.g., monthly vs. yearly).
 * Test other heavy queries (e.g., JOINs) to validate partition effectiveness.
 
-```
-
----
-
-> Place `partitioning.sql` in `database-adv-script/` and `partitioning_report.md` at the root of your repository. Then commit and push both files.
-```
-
